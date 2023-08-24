@@ -6,6 +6,7 @@ using UnityEngine;
 public class BDH_PalyerAnimation : MonoBehaviour
 {
 
+    public Animator GetAnimator { get { return animator;  } }
 
     public float NextAttackTiming;
 
@@ -26,13 +27,6 @@ public class BDH_PalyerAnimation : MonoBehaviour
             return false;
     }
 
-    public void Die()
-    {
-        animator.SetTrigger("Die");
-
-        character.isDie = true;
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +40,9 @@ public class BDH_PalyerAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (character.isDie) return;
+
         #region Landing, Fall
         if (character.isGround) animator.SetBool("Is Touch Ground", true);
 
@@ -77,8 +74,25 @@ public class BDH_PalyerAnimation : MonoBehaviour
                 playerCtrl.combo = 0;
             }
 
+            if(IsAnimationClipEnd("Attack 1"))
+            {
+                animator.SetBool("Attacking", false);
 
-            if(IsAnimationClipEnd($"Attack {playerCtrl.combo}", 1.0f))
+                character.isAttacking = false;
+
+                playerCtrl.combo = 0;
+            }
+
+            if(IsAnimationClipEnd("Attack 2"))
+            {
+                animator.SetBool("Attacking", false);
+
+                character.isAttacking = false;
+
+                playerCtrl.combo = 0;
+            }
+
+            if(IsAnimationClipEnd("Attack 3"))
             {
                 animator.SetBool("Attacking", false);
 

@@ -102,22 +102,26 @@ public class BDH_PlayerCtrl : MonoBehaviour
 
         Debug.Log(finalObject.name);
 
+        Vector3 targetPosition = finalObject.transform.position;
+
+        targetPosition.y = tr.position.y;
 
         while(Vector3.Distance(tr.position, finalObject.transform.position) >= AttackTargetDistance)
         {
 
             Debug.Log("Target Come up" + finalObject.name);
 
-            tr.position = Vector3.Lerp(tr.position, finalObject.transform.position, Time.deltaTime * AttackTargetingSpeed);
+            tr.position = Vector3.Lerp(tr.position, targetPosition, Time.deltaTime * AttackTargetingSpeed);
 
             MeshPivot.rotation = TargetLookAt(MeshPivot, finalObject.transform);
 
             animator.Direction = Vector2.up;
 
+            animator.GetAnimator.SetFloat("Walk Axis Z", 1.0f);
+
             yield return new WaitForEndOfFrame();
         
         }
-        
 
         combo++;
 
@@ -151,7 +155,7 @@ public class BDH_PlayerCtrl : MonoBehaviour
     void Update()
     {
 
-        if (character.isDie && !character.isGround) return;
+        if (character.isDie || !character.isGround) return;
 
         #region Attack 
         if (AttackDelay <= LastAttackTime)
@@ -189,7 +193,17 @@ public class BDH_PlayerCtrl : MonoBehaviour
         {
             character.isJumpping = true;
 
-            tr.position = Vector3.down * Time.deltaTime * character.JumpPower;
+            tr.position += Vector3.up * Time.deltaTime * character.JumpPower;
+        }
+    }
+
+    void OnTriggerEnter(Collider coll)
+    {
+        if(coll.gameObject.tag.Equals("Enemy"))
+        {
+            Debug.Log("Hit");
+            
+            character.TakeDamage(coll.gameObject.GetComponent<BDH_Character>().Damage);
         }
     }
 

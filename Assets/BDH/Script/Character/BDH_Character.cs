@@ -14,10 +14,8 @@ public class BDH_Character : MonoBehaviour
     [Header("공격 사거리")]
     public float AttackDistance;
 
-
     [Header("이동속도")]
     public float MaxSpeed;
-
 
     [Space(10)]
     [Header("현재 캐릭터 상태")]
@@ -45,6 +43,23 @@ public class BDH_Character : MonoBehaviour
     [Header("공격중 인가")]
     public bool isAttacking = false;
 
+    BDH_PalyerAnimation animator;
+
+    public void TakeDamage(int damage)
+    {
+        if(Hp <= 0)
+        {
+            isDie = true;
+
+            animator.GetAnimator.SetBool("Die", true);
+
+        }
+        else
+        {
+            Hp -= Damage;
+        }
+    }
+
     void Start()
     {
         Hp = MaxHp;
@@ -52,6 +67,9 @@ public class BDH_Character : MonoBehaviour
         Damage = MaxDamage;
      
         Speed = MaxSpeed;
+
+        animator = GetComponent<BDH_PalyerAnimation>();
     }
 
 }
+
