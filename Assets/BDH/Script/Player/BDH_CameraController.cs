@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
+public class BDH_CameraController : MonoBehaviour
 {
 
     public float MouseSensitivity;

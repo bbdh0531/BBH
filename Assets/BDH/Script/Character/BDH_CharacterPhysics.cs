@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
-public class CharacterPhysics : MonoBehaviour
+public class BDH_CharacterPhysics : MonoBehaviour
 {
 
     public float GravityScale = 0.1f;
@@ -20,14 +20,14 @@ public class CharacterPhysics : MonoBehaviour
 
     Animator animator;
 
-    Character character;
+    BDH_Character character;
 
     // Start is called before the first frame update
     void Start()
     {
         tr = GetComponent<Transform>();
 
-        character = GetComponent<Character>();  
+        character = GetComponent<BDH_Character>();  
 
         root = GameObject.Find("Root").GetComponent<Transform>();
 

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class PlayerCtrl : MonoBehaviour
+public class BDH_PlayerCtrl : MonoBehaviour
 {
     public KeyCode[] MoveForward;
 
@@ -34,9 +34,9 @@ public class PlayerCtrl : MonoBehaviour
 
     Transform tr;
 
-    PalyerAnimation animator;
+    BDH_PalyerAnimation animator;
 
-    Character character;
+    BDH_Character character;
 
     float ReturnAxis(KeyCode k1, KeyCode k2)
     {
@@ -131,9 +131,9 @@ public class PlayerCtrl : MonoBehaviour
     {
         tr = GetComponent<Transform>();
 
-        character = GetComponent<Character>();
+        character = GetComponent<BDH_Character>();
 
-        animator =  GetComponent<PalyerAnimation>();
+        animator =  GetComponent<BDH_PalyerAnimation>();
 
         MoveForward[0] = KeyCode.W;
         MoveForward[1] = KeyCode.S;

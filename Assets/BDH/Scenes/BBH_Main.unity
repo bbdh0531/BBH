@@ -708,6 +708,7 @@ MonoBehaviour:
   Hp: 0
   Damage: 0
   Speed: 0
+  JumpPower: 0
   isDie: 0
   isGround: 0
   isJumpping: 0
@@ -741,6 +742,7 @@ MonoBehaviour:
   MoveForward: 0000000000000000
   MoveRight: 0000000000000000
   AttackKey: 0
+  JumpKey: 0
   combo: 0
   AttackDelay: 0.5
   LastAttackTime: 0

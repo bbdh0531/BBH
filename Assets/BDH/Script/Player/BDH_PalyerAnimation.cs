@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PalyerAnimation : MonoBehaviour
+public class BDH_PalyerAnimation : MonoBehaviour
 {
 
 
@@ -13,9 +13,9 @@ public class PalyerAnimation : MonoBehaviour
 
     Animator animator;
 
-    Character character;
+    BDH_Character character;
 
-    PlayerCtrl playerCtrl;
+    BDH_PlayerCtrl playerCtrl;
 
     public bool IsAnimationClipEnd(string clipName, float endTime = 1.0f)
     {
@@ -36,11 +36,11 @@ public class PalyerAnimation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        character = GetComponent<Character>();  
+        character = GetComponent<BDH_Character>();  
 
         animator = GameObject.Find("Mesh").GetComponent<Animator>();
 
-        playerCtrl = GetComponent<PlayerCtrl>();    
+        playerCtrl = GetComponent<BDH_PlayerCtrl>();    
     }
 
     // Update is called once per frame
