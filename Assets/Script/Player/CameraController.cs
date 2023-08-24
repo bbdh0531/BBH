@@ -32,8 +32,6 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         tr = GetComponent<Transform>();
-
-
     }
 
     // Update is called once per frame
@@ -52,21 +50,21 @@ public class CameraController : MonoBehaviour
     void LateUpdate()
     {
 
-        Vector3 direction = RootPivot.position - RealCameraPivot.position;
+        //Vector3 direction = RootPivot.position - RealCameraPivot.position;
 
-        Debug.DrawRay(RealCameraPivot.position, direction, Color.green);
+        //Debug.DrawRay(RealCameraPivot.position, direction, Color.green);
 
-        RaycastHit hit;
+        //RaycastHit hit;
 
 
-        if(Physics.Raycast(RealCameraPivot.position, direction, out hit))
-        {
+        //if(Physics.Raycast(RealCameraPivot.position, direction, out hit))
+        //{
 
-            if (hit.collider.gameObject.layer == 6)
-                distance = CameraDistanceMax;
-            else
-                distance = Mathf.Clamp(hit.distance, CameraDistanceMin, CameraDistanceMax);
+        //    if (hit.collider.gameObject.layer == 6)
+        //        distance = CameraDistanceMax;
+        //    else
+        //        distance = Mathf.Clamp(hit.distance, CameraDistanceMin, CameraDistanceMax);
 
-        }
+        //}
     }
 }

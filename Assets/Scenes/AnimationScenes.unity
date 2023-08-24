@@ -1205,7 +1205,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3438087790112833829}
   - component: {fileID: 3438087790122659517}
+  - component: {fileID: 3438087790122659519}
   - component: {fileID: 3438087790122659518}
+  - component: {fileID: 3438087790122659520}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1445,10 +1447,55 @@ MonoBehaviour:
   m_GameObject: {fileID: 3438087790113266885}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16a64f83456cac843a682febc7351d7c, type: 3}
+  m_Script: {fileID: 11500000, guid: af5fe11bcab914248ae7ed0217f233df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0}
+  NextAttackTiming: 0.5
+  Direction: {x: 0, y: 0}
+--- !u!114 &3438087790122659519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3438087790113266885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cbb73e839d5da846956c1ad542f3207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHp: 0
+  MaxDamage: 0
+  AttackDistance: 0
+  MaxSpeed: 0
+  Hp: 0
+  Damage: 0
+  Speed: 0
+  isDie: 0
+  isGround: 1
+  isJumpping: 0
+  isAttacking: 0
+--- !u!114 &3438087790122659520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3438087790113266885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 972cdc66ba870f545b7e7e7a2f7b586d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveForward: 0000000000000000
+  MoveRight: 0000000000000000
+  AttackKey: 0
+  combo: 0
+  MaxCombpo: 0
+  AttackDelay: 1
+  LastAttackTime: 0
+  CameraPivot: {fileID: 0}
+  MeshPivot: {fileID: 0}
 --- !u!4 &3563446955388697594
 Transform:
   m_ObjectHideFlags: 0

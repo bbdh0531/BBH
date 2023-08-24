@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class CharacterPhysics : MonoBehaviour
 {
@@ -9,10 +10,7 @@ public class CharacterPhysics : MonoBehaviour
 
     public float LandingDistance;
 
-    public bool isGround { get { return isGround; } private set { isGround = value; } }
-
-    public Transform CharacterPivot;
-
+    Transform root;
 
     float currentGravityPower;
 
@@ -22,10 +20,16 @@ public class CharacterPhysics : MonoBehaviour
 
     Animator animator;
 
+    Character character;
+
     // Start is called before the first frame update
     void Start()
     {
         tr = GetComponent<Transform>();
+
+        character = GetComponent<Character>();  
+
+        root = GameObject.Find("Root").GetComponent<Transform>();
 
         animator = GetComponent<Animator>();
     }
@@ -36,13 +40,17 @@ public class CharacterPhysics : MonoBehaviour
 
         RaycastHit hit;
 
-        if (Physics.Raycast(CharacterPivot.position, -tr.up, out hit, LandingDistance, 1 << 8))
+        if (Physics.Raycast(root.position, -tr.up, out hit, LandingDistance, 1 << 8))
         {
+
             currentGravityPower = 0.0f;
 
-            isGround = true;
+            Debug.Log("A");
 
-            animator.SetBool("is Touch Ground", true);
+            character.isGround = true;
+
+
+           // animator.SetBool("is Touch Ground", true);
 
         }
         else
@@ -55,13 +63,13 @@ public class CharacterPhysics : MonoBehaviour
 
             tr.position = velocity;
 
-            isGround = false;
+            character.isGround = false;
 
-            animator.SetBool("is Touch Ground", false);
+            // animator.SetBool("is Touch Ground", false);
 
         }
 
-        Debug.DrawRay(CharacterPivot.position, -tr.up * LandingDistance, Color.green);
+        Debug.DrawRay(root.position, -tr.up * LandingDistance, Color.green);
 
     }
 }
